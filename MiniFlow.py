@@ -1,3 +1,4 @@
+import numpy as np
 
 class Node(object):
     def __init__(self):
@@ -38,3 +39,18 @@ class Input(Node):
         # Overwrite the value if one is passed in.
         if value is not None:
             self.value = value
+
+class Linear(Node):
+    def __init__(self, inputs, weights, bias):
+        Node.__init__(self, [inputs, weights, bias])
+
+        # NOTE: The weights and bias properties here are not
+        # numbers, but rather references to other nodes.
+        # The weight and bias values are stored within the
+        # respective nodes.
+
+    def forward(self):
+        X = self.inbound_nodes[0].value
+        W = self.inbound_nodes[1].value
+        b = self.inbound_nodes[2].value
+        self.value = np.dot(X, W) + b
