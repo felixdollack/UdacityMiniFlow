@@ -185,7 +185,7 @@ class MSE(Node):
 
 def topological_sort(feed_dict):
     """
-    Sort generic nodes in topological order using Kahn's Algorithm.
+    Sort nodes in topological order using Kahn's Algorithm.
 
     `feed_dict`: A dictionary where the key is a `Input` node and the value is the respective value feed to that node.
 
